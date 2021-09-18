@@ -40,7 +40,7 @@ const Collection = dynamic(() =>
 )
 
 const CollectionRow = dynamic(
-  () => import('react-notion-x/build/esm/components/collection-row').then((notion) => {return notion.CollectionRow}),
+  () => import('react-notion-x/build/cjs/components/collection-row').then((notion) => {return notion.CollectionRow}),
 )
 
 // const Pdf = dynamic(() => import('react-notion-x').then((notion) => notion.Pdf))
