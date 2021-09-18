@@ -8,7 +8,6 @@
  */
 
 .notion {
-  --notion-max-width: 720px;
   --notion-header-height: 54px;
   font-family: AkzidenzGrotesk
 }
@@ -17,11 +16,6 @@
   padding-bottom: calc(max(5vh, 32px)) !important;
   line-height: 1.65;
 }
-
-.index-page {
-  --notion-max-width: 900px;
-}
-
 .notion-text {
   padding: 0.5em 2px;
 }
