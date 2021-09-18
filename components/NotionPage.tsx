@@ -12,7 +12,7 @@ import { PageBlock } from 'notion-types'
 //import { Tweet, TwitterContextProvider } from 'react-static-tweets'
 
 // core notion renderer
-const NotionRenderer = dynamic( () => import('react-notion-x/build/cjs/renderer').then((renderer) => renderer.NotionRenderer));
+const NotionRenderer = dynamic( () => import('react-notion-x/build/esm/renderer').then((renderer) => renderer.NotionRenderer), {ssr: false});
 
 // utils
 import { getBlockTitle } from 'notion-utils'
@@ -32,21 +32,21 @@ import { Footer } from './Footer'
 import { PageSocial } from './PageSocial'
 
 const Code = dynamic(() =>
-  import('react-notion-x/build/cjs/components/code').then((code)=>code.Code)
+  import('react-notion-x/build/esm/components/code').then((code)=>code.Code) , {ssr: false}
 )
 
 const Collection = dynamic(() =>
-  import('react-notion-x/build/cjs/components/collection').then((notion) => {return notion.Collection})
+  import('react-notion-x/build/esm/components/collection').then((notion) => {return notion.Collection}) , {ssr: false}
 )
 
 const CollectionRow = dynamic(
-  () => import('react-notion-x/build/cjs/components/collection-row').then((notion) => {return notion.CollectionRow}),
+  () => import('react-notion-x/build/esm/components/collection-row').then((notion) => {return notion.CollectionRow}), {ssr: false}
 )
 
 // const Pdf = dynamic(() => import('react-notion-x').then((notion) => notion.Pdf))
 
 const Equation = dynamic(() =>
-  import('@matejmazur/react-katex')
+  import('@matejmazur/react-katex'), {ssr: false}
 )
 
 // we're now using a much lighter-weight tweet renderer react-static-tweets
