@@ -12,7 +12,7 @@ import { PageBlock } from 'notion-types'
 //import { Tweet, TwitterContextProvider } from 'react-static-tweets'
 
 // core notion renderer
-const NotionRenderer = dynamic( () => import('react-notion-x/build/esm/renderer').then((renderer) => renderer.NotionRenderer));
+const NotionRenderer = dynamic( () => import('react-notion-x/build/cjs/renderer').then((renderer) => renderer.NotionRenderer));
 
 // utils
 import { getBlockTitle } from 'notion-utils'
@@ -32,11 +32,11 @@ import { Footer } from './Footer'
 import { PageSocial } from './PageSocial'
 
 const Code = dynamic(() =>
-  import('react-notion-x/build/esm/components/code').then((code)=>code.Code)
+  import('react-notion-x/build/cjs/components/code').then((code)=>code.Code)
 )
 
 const Collection = dynamic(() =>
-  import('react-notion-x/build/esm/components/collection').then((notion) => {return notion.Collection})
+  import('react-notion-x/build/cjs/components/collection').then((notion) => {return notion.Collection})
 )
 
 const CollectionRow = dynamic(
