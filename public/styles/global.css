@@ -170,7 +170,7 @@ body {
 .header-nomad-image {
   display: inline;
   height:200%;
-  transform: translate(0%, -50%);
+  transform: translate(0%, -48%);
 }
 
 .header-nomad-image img {

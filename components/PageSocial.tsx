@@ -41,10 +41,7 @@ const socialLinks: SocialLink[] = [
     href: `https://thebluealliance.com/${config.thebluealliance}`,
     title: `Blue Alliance ${config.thebluealliance}`,
     icon: (
-      <svg>
-        <img width="50%" height="50%" src="https://www.thebluealliance.com/images/tba_lamp.svg"/>
-      
-      </svg>
+        <img alt="The Blue Alliance" width="50%" height="50%" src="https://www.thebluealliance.com/images/tba_lamp.svg"/>
     )
   },
 
