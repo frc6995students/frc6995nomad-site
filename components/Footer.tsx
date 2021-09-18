@@ -24,18 +24,6 @@ export const Footer: React.FC<{
     <footer className={"footer"}>
       <div className={"copyright"}>Copyright 2021 {config.author}</div>
 
-      {hasMounted ? (
-        <div className={"settings"}>
-          <a
-            className={"toggleDarkMode"}
-            onClick={toggleDarkModeCb}
-            title='Toggle dark mode'
-          >
-            {isDarkMode ? "Dark Mode" : "Light Mode"}
-          </a>
-        </div>
-      ) : null}
-
     </footer>
   )
 }
