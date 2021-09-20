@@ -1,18 +1,18 @@
 import * as React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/image'
 import dynamic from 'next/dynamic'
 import cs from 'classnames'
 import { useRouter } from 'next/router'
 import { useSearchParam } from 'react-use'
 import BodyClassName from 'react-body-classname'
-import useDarkMode from 'use-dark-mode'
 import { PageBlock } from 'notion-types'
 
 //import { Tweet, TwitterContextProvider } from 'react-static-tweets'
 
 // core notion renderer
-import { NotionRenderer} from 'react-notion-x'
+const NotionRenderer = dynamic( () => import('react-notion-x/build/esm/renderer').then((renderer) => renderer.NotionRenderer), {ssr: false});
 
 // utils
 import { getBlockTitle } from 'notion-utils'
@@ -25,31 +25,28 @@ import * as types from 'lib/types'
 import * as config from 'lib/config'
 
 // components
-import { CustomFont } from './CustomFont'
 import { Loading } from './Loading'
 import { Page404 } from './Page404'
 import { PageHead } from './PageHead'
 import { Footer } from './Footer'
 import { PageSocial } from './PageSocial'
 
-import styles from './styles.module.css'
-
 const Code = dynamic(() =>
-  import('react-notion-x').then((notion) => notion.Code)
+  import('react-notion-x/build/esm/components/code').then((code)=>code.Code) , {ssr: false}
 )
 
 const Collection = dynamic(() =>
-  import('react-notion-x').then((notion) => notion.Collection)
+  import('react-notion-x/build/esm/components/collection').then((notion) => {return notion.Collection}) , {ssr: false}
 )
 
 const CollectionRow = dynamic(
-  () => import('react-notion-x').then((notion) => notion.CollectionRow),
+  () => import('react-notion-x/build/esm/components/collection-row').then((notion) => {return notion.CollectionRow}), {ssr: false}
 )
 
-const Pdf = dynamic(() => import('react-notion-x').then((notion) => notion.Pdf))
+// const Pdf = dynamic(() => import('react-notion-x').then((notion) => notion.Pdf))
 
 const Equation = dynamic(() =>
-  import('react-notion-x').then((notion) => notion.Equation)
+  import('@matejmazur/react-katex'), {ssr: false}
 )
 
 // we're now using a much lighter-weight tweet renderer react-static-tweets
@@ -57,7 +54,7 @@ const Equation = dynamic(() =>
 // const Tweet = dynamic(() => import('react-tweet-embed'))
 
 const Modal = dynamic(
-  () => import('react-notion-x').then((notion) => notion.Modal),
+  () => import('react-modal'),
   { ssr: false }
 )
 
@@ -77,8 +74,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const isLiteMode = lite === 'true'
   const searchParams = new URLSearchParams(params)
 
-  const darkMode = useDarkMode(false, { classNameDark: 'dark-mode' })
-
+  const darkMode = true;
   if (router.isFallback) {
     return <Loading />
   }
@@ -92,13 +88,13 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   const title = getBlockTitle(block, recordMap) || site.name
 
-  console.log('notion page', {
-    isDev: config.isDev,
-    title,
-    pageId,
-    rootNotionPageId: site.rootNotionPageId,
-    recordMap
-  })
+  // console.log('notion page', {
+  //   isDev: config.isDev,
+  //   title,
+  //   pageId,
+  //   rootNotionPageId: site.rootNotionPageId,
+  //   recordMap
+  // })
 
   if (!config.isServer) {
     // add important objects to the window global for easy debugging
@@ -128,7 +124,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const socialDescription =
     getPageDescription(block, recordMap) ?? config.description
 
-  let comments: React.ReactNode = null
   let pageAside: React.ReactChild = null
 
   // only display comments and page actions on blog post pages
@@ -185,12 +180,10 @@ export const NotionPage: React.FC<types.PageProps> = ({
         <title>{title}</title>
       </Head>
 
-      <CustomFont site={site} />
-
       {isLiteMode && <BodyClassName className='notion-lite' />}
           <NotionRenderer
             bodyClassName={cs(
-              styles.notion,
+              "notion",
               pageId === site.rootNotionPageId && 'index-page'
             )}
             components={{
@@ -209,7 +202,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
                   href={href}
                   as={as}
                   passHref={passHref}
-                  prefetch={prefetch}
+                  prefetch={false}
                   replace={replace}
                   scroll={scroll}
                   shallow={shallow}
@@ -223,13 +216,13 @@ export const NotionPage: React.FC<types.PageProps> = ({
               collectionRow: CollectionRow,
               //tweet: Tweet,
               modal: Modal,
-              pdf: Pdf,
+              // pdf: Pdf,
               equation: Equation
             }}
             recordMap={recordMap}
             rootPageId={site.rootNotionPageId}
             fullPage={!isLiteMode}
-            darkMode={darkMode.value}
+            darkMode={darkMode}
             previewImages={site.previewImages !== false}
             showCollectionViewDropdown={false}
             showTableOfContents={showTableOfContents}
@@ -249,34 +242,29 @@ export const NotionPage: React.FC<types.PageProps> = ({
                       {' '}
                       <span>About</span>
                     </a>
-                    <a href="/">
+                    <a href="/" className="header-nomad-image">
                     <img
-                      style={{
-                        zIndex: 500,
-                        width:"calc(2*var(--notion-header-height))",
-                        transform: "translate(0%, -50%)",
-                        height:"calc(2*var(--notion-header-height))"
-                      }}
                       src='/Logo.png'
                       alt='NOMAD Home'
-                    ></img></a>
+                      width="auto"
+                      height="100%"
+                    ></img>
+                    </a>
                     <a href='/blog'>
                       {' '}
                       <span >Blog</span>
                     </a>
-                    
-                  </div>
+                    </div>
                 </div>
               </div>
             }
             footer={
               <Footer
-                isDarkMode={darkMode.value}
-                toggleDarkMode={darkMode.toggle}
-              />
+                isDarkMode={darkMode}
+                toggleDarkMode={()=>{}}
+            />
             }
           />
-          {/*</TwitterContextProvider>*/}
         </div>
   )
 }
