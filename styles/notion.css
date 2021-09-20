@@ -127,6 +127,10 @@
     padding-left: 2vw;
     padding-right: 2vw;
   }
+
+  .breadcrumb {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 720px) {

@@ -257,7 +257,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
                         transform: "translate(0%, -50%)",
                         height:"calc(2*var(--notion-header-height))"
                       }}
-                      src='/Scorpion.svg'
+                      src='/Logo.png'
                       alt='NOMAD Home'
                     ></img></a>
                     <a href='/blog'>
