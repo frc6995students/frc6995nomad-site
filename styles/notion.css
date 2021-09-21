@@ -124,7 +124,7 @@
     padding-right: 2vw;
   }
 
-  .breadcrumb {
+  .breadcrumbs, .breadcrumb {
     display: none;
   }
 }
@@ -325,15 +325,14 @@
 }
 
 .notion-header {
-  background: hsla(0, 0%, 100%, 0.8);
+  background: transparent;
   position:fixed;
   top:0;
-  z-index: 200;
+  z-index: 500;
+  overflow: visible;
 }
 
-.dark-mode .notion-header {
-  background-color: #000000BB;
-}
+
 
 .notion-bookmark:hover {
   border-image: linear-gradient(90.68deg, #b439df 0.26%, #e5337e 102.37%);
@@ -344,13 +343,7 @@
   margin-top:calc(2*var(--notion-header-height))
 }
 
-.navbar{
-  position:fixed;
-  top:calc(var(--notion-header-height));
-  left:0;
-}
-
-.navbar .nav-header {
+.nav-header {
   height:var(--notion-header-height);
 }
 
@@ -358,23 +351,58 @@
   background: hsla(0, 0%, 100%, 0.8);
   z-index: 200;
   width:100%;
-  height:var(--notion-header-height);
+  position:fixed;
+  left:0;
+  top: 0;
+  justify-content: center;
+  height: auto;
+  padding: 0;
 }
 
-.dark-mode .navbar {
-  background: #000000BB;
+.dark-mode .navbar-contents {
+  background: #000000bb;
+  
 }
 
 .navbar-contents {
-  height: 100%;
+  height: auto;
+  max-height: calc(2*var(--notion-header-height));
+  min-height: calc(var(--notion-header-height));
   width:100%;
+  position: fixed;
+  top:0;
   display:flex;
+  align-items: center;
   justify-content: center;
   gap: 2vw;
+  padding:0;
 }
 
+.header-nomad-image {
+  padding-top: 5px;
+  display: block;
+  transform-origin: top;
+  position: relative;
+  height:auto;
+  max-height:calc(2*var(--notion-header-height));
+  width:auto;
+  
+}
+.nomad-logo-text-overlay {
+  position:absolute;
+  left:0%;
+  top:0%;
+  opacity: 100%;
+}
+
+.nomad-logo-text-overlay.height-full {
+  opacity: 100%;
+}
+
+
+
 .notion-header .breadcrumbs {
-  max-width: 45vw;
+  display: none;
 }
 
 .notion-header .breadcrumbs .breadcrumb {
@@ -383,6 +411,14 @@
 
 .notion-header .breadcrumbs .breadcrumb span {
   width:100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
+}
+
+@media only screen and (max-width: 920px) {
+  .breadcrumb, .breadcrumbs {
+    display:none !important;
+  }
+}
+
+.breadcrumbs, .rhs {
+  z-index: 1000;
 }

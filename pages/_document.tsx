@@ -39,9 +39,6 @@ export default class MyDocument extends Document {
                 NextScript.getInlineScriptSource(this.props))} 'sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=' 'sha256-PjBkwE8xcYZAp+HsnzzOVNqa/Ra+/v1Fnx6f0PW6ic4='; style-src 'self' 'unsafe-inline'`
               } />
             <link rel='manifest' href='/manifest.json' />
-            <link rel='stylesheet' href='/styles/styles.css' nonce={generatedNonce}></link>
-            <link rel='stylesheet' href='/styles/notion.css' nonce={generatedNonce}></link>
-            <link rel='stylesheet' href='/styles/global.css' nonce={generatedNonce}></link>
             
 
           </Head>

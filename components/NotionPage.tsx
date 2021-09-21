@@ -30,6 +30,7 @@ import { Page404 } from './Page404'
 import { PageHead } from './PageHead'
 import { Footer } from './Footer'
 import { PageSocial } from './PageSocial'
+import { PageHeader } from './PageHeader'
 
 const Code = dynamic(() =>
   import('react-notion-x/build/esm/components/code').then((code)=>code.Code) , {ssr: false}
@@ -234,30 +235,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
             mapImageUrl={mapNotionImageUrl}
             searchNotion={searchNotion}
             pageAside={pageAside}
-            pageHeader={
-              <div className='navbar'>
-                <div className='nav-header navbar-contents'>
-                  <div className='navbar-contents'>
-                    <a href='/about'>
-                      {' '}
-                      <span>About</span>
-                    </a>
-                    <a href="/" className="header-nomad-image">
-                    <img
-                      src='/Logo.png'
-                      alt='NOMAD Home'
-                      width="auto"
-                      height="100%"
-                    ></img>
-                    </a>
-                    <a href='/blog'>
-                      {' '}
-                      <span >Blog</span>
-                    </a>
-                    </div>
-                </div>
-              </div>
-            }
+            pageHeader={<PageHeader></PageHeader>}
             footer={
               <Footer
                 isDarkMode={darkMode}

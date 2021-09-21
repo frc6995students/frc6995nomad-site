@@ -1,11 +1,9 @@
 
 
 // global styles shared across the entire site
-
+import 'styles/global.css'
 // core styles shared by all of react-notion-x (required)
-//import 'react-notion-x/src/styles.css'
-
-//import 'styles/wreath-countdown.css'
+import 'react-notion-x/src/styles.css'
 
 // used for code syntax highlighting (optional)
 //import 'prismjs/themes/prism-coy.css'
@@ -24,7 +22,7 @@ import 'katex/dist/katex.min.css'
 //import 'react-static-tweets/styles.css'
 
 // global style overrides for notion
-//import 'styles/notion.css'
+import 'styles/notion.css'
 
 // global style overrides for prism theme (optional)
 //import 'styles/prism-theme.css'
