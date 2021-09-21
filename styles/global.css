@@ -16,6 +16,10 @@
   }
 }
 
+* {
+  --notion-teal: #8dbe2a
+}
+
 .container {
   position: absolute;
   top: 0;
@@ -295,8 +299,5 @@ body {
   }
 }
 
-.notion-teal {
-  color:#8dbe2a
-}
 
 
