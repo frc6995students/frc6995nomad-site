@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic"
 const Countdown = dynamic((import('react-countdown')));
 
 const Completionist = () => (
@@ -5,7 +6,7 @@ const Completionist = () => (
 )
 
 // Renderer callback with condition
-const renderer = ({ days, hourscompleted }) => {
+const renderer = ({ days, hours, completed }) => {
   if (completed) {
     // Render a completed state
     return <Completionist />

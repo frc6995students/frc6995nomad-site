@@ -7,7 +7,7 @@ import BeachBlitzCarousel from "./beachblitz"
 var HomepageCarousel = () => {
         return (
             <div style={{height:"100%", width:"100%"}}>
-            <Carousel showThumbs={false}>
+            <Carousel showThumbs={false} infiniteLoop={true}>
                 <div>
                     <WreathCountdown></WreathCountdown>
                 </div>
