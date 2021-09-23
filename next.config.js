@@ -16,6 +16,15 @@ module.exports = withBundleAnalyzer(({
   images: {
     domains: ['pbs.twimg.com']
   },
+  async redirects() {
+    return [
+      {
+        source: '/photos',
+        destination: '/galleries/photos',
+        permanent: true,
+      },
+    ]
+  },
   future: {
     webpack5: true
   },

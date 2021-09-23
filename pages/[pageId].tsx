@@ -15,13 +15,6 @@ export const getStaticProps = async (context) => {
         }
       }
     }
-    if (rawPageId.startsWith('photos')) {
-      return {
-        redirect: {
-          destination: `/galleries/photos`
-        }
-      }
-    }
 
     const props = await resolveNotionPage(domain, rawPageId)
 
