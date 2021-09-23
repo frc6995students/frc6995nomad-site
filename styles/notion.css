@@ -372,21 +372,36 @@
   position: fixed;
   top:0;
   display:flex;
-  align-items: center;
+  flex-basis: 1 0 0;
   justify-content: center;
+  align-items: center;
+  
   gap: 2vw;
   padding:0;
 }
 
 .header-nomad-image {
   padding-top: 5px;
-  display: block;
+  display: inline-block;
   transform-origin: top;
   position: relative;
   height:auto;
   max-height:calc(2*var(--notion-header-height));
   width:auto;
+}
+
+.header-links-left, .header-links-right {
+  flex-basis: 0;
+  flex-grow: 1;
+  display: flex;
+  gap:3vw;
   
+}
+.header-links-left {
+  justify-content: right;
+}
+.header-links-right {
+  justify-content: left;
 }
 .nomad-logo-text-overlay {
   position:absolute;

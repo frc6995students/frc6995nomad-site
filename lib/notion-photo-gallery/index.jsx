@@ -1,8 +1,8 @@
 import { addItem, readContents, readPropertyList } from './database.js'
 import ReactImageGallery from 'react-image-gallery'
 //addItem("TEST")
-export async function getFileLinks() {
-return readPropertyList('Upload')
+export async function getFileLinks(filter) {
+return readPropertyList('Upload', filter)
   .then((list) => {
     return list.map((item) => {
       if (item.files[0]) {

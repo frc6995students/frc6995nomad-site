@@ -4,7 +4,8 @@ import {PageHeader} from 'components/PageHeader'
 import {Footer} from 'components/Footer'
 export async function getStaticProps() {
     const imagesList = await getFileLinks();
-    const props = {images:imagesList}
+    const filteredList = [...new Set(imagesList)];
+    const props = {images:filteredList}
     return { props, revalidate: 10 }
 }
 const PhotoGallery = (props) => {

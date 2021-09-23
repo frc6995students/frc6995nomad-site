@@ -16,10 +16,17 @@ export const PageHeader = () => {
     
     return (<div className='navbar' >
                 <div className='navbar-contents'>
+                    <div className="header-links-left">
                     <a className='header-links' href='/about'>
                       {' '}
                       <span>About</span>
                     </a>
+                    <a className='header-links' href='/galleries/photos'>
+                      {' '}
+                      <span>Photos</span>
+                    </a>
+                    </div>
+
                     <a href="/" className="header-nomad-image">
                     <img
                       className="nomad-logo-text"
@@ -37,10 +44,11 @@ export const PageHeader = () => {
                       height={height}
                       ></img>)}
                     </a>
-                    <a className='header-links' href='/blog'>
+                    <div className='header-links-right'><a className='header-links' href='/blog'>
                       {' '}
                       <span >Blog</span>
-                    </a>
+                    </a></div>
+                    
                     </div>
                 </div>)
 }
