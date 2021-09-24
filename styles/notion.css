@@ -31,6 +31,7 @@
 
 .notion-header .nav-header {
   margin: 0 auto;
+  z-index: 3;
 }
 
 .notion-gallery-grid {
@@ -328,7 +329,7 @@
   background: transparent;
   position:fixed;
   top:0;
-  z-index: 500;
+  z-index: 3;
   overflow: visible;
 }
 
@@ -349,7 +350,7 @@
 
 .navbar {
   background: hsla(0, 0%, 100%, 0.8);
-  z-index: 200;
+  z-index: 4;
   width:100%;
   position:fixed;
   left:0;
@@ -375,7 +376,7 @@
   flex-basis: 1 0 0;
   justify-content: center;
   align-items: center;
-  
+  z-index: inherit;
   gap: 2vw;
   padding:0;
 }
@@ -391,11 +392,15 @@
 }
 
 .header-links-left, .header-links-right {
+  position:relative;
   flex-basis: 0;
   flex-grow: 1;
   display: flex;
   gap:3vw;
-  
+}
+.header-links {
+  position:inherit;
+  z-index: 10;
 }
 .header-links-left {
   justify-content: right;
@@ -434,6 +439,6 @@
   }
 }
 
-.breadcrumbs, .rhs {
-  z-index: 1000;
+.rhs{
+  display:none !important
 }
