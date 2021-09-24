@@ -8,7 +8,7 @@ return readPropertyList('Upload', filter)
       if (item.files[0]) {
         return item.files[0]
       }
-    }).filter(Boolean)
+    })
   })
   .then((fileList)=>{
     console.log('===FILES===')

@@ -299,5 +299,18 @@ body {
   }
 }
 
+.pg-custom-img {
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+}
+
+.pg-unset-img {
+  width: 100%;
+}
+.pg-unset-img > div {
+  position: unset !important;
+}
 
 

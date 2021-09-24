@@ -200,7 +200,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
                 ...props
               }) => (
                 <Link
-                  href={href}
+                  href={(href.startsWith("/photos")) ? "/galleries/photos" : href}
                   as={as}
                   passHref={passHref}
                   prefetch={false}

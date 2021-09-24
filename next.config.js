@@ -14,7 +14,7 @@ module.exports = withBundleAnalyzer(({
     return hash.digest('base64');
   }},
   images: {
-    domains: ['pbs.twimg.com']
+    domains: ['pbs.twimg.com', 'unsplash.com', 's3.us-west-2.amazonaws.com']
   },
   async redirects() {
     return [
@@ -25,9 +25,7 @@ module.exports = withBundleAnalyzer(({
       },
     ]
   },
-  future: {
-    webpack5: true
-  },
+  webpack5: true,
   compress:true,
   headers: async () => {
     return [
