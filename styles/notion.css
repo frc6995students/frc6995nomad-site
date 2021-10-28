@@ -342,7 +342,7 @@
 }
 
 .notion-page-scroller {
-  margin-top:calc(2*var(--notion-header-height))
+  margin-top:calc(2.1*var(--notion-header-height))
 }
 
 .nav-header {
