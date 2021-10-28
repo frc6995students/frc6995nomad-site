@@ -1,5 +1,6 @@
 import * as React from 'react'
 import * as config from 'lib/config'
+import {FooterSocial} from './FooterSocial'
 
 // TODO: merge the data and icons from PageSocial with the social links in Footer
 
@@ -22,7 +23,9 @@ export const Footer: React.FC<{
 
   return (
     <footer className={"footer"}>
-      <div className={"copyright"}>Copyright 2021 {config.author}</div>
+      <div className={"footer-left"}>Copyright 2021 {config.author}</div>
+      <FooterSocial></FooterSocial>
+      <div className={"footer-right"}></div>
 
     </footer>
   )

@@ -29,7 +29,7 @@ import { Loading } from './Loading'
 import { Page404 } from './Page404'
 import { PageHead } from './PageHead'
 import { Footer } from './Footer'
-import { PageSocial } from './PageSocial'
+
 import { PageHeader } from './PageHeader'
 
 const Code = dynamic(() =>
@@ -125,18 +125,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const socialDescription =
     getPageDescription(block, recordMap) ?? config.description
 
-  let pageAside: React.ReactChild = null
-
-  // only display comments and page actions on blog post pages
-  if (isBlogPost) {
-
-    // const tweet = getPageTweet(block, recordMap)
-    // if (tweet) {
-    //   pageAside = <PageActions tweet={tweet} />
-    // }
-  } else {
-    pageAside = <PageSocial />
-  }
   return (
     <div>
       <PageHead site={site} />
@@ -234,7 +222,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
             mapPageUrl={siteMapPageUrl}
             mapImageUrl={mapNotionImageUrl}
             searchNotion={searchNotion}
-            pageAside={pageAside}
             pageHeader={<PageHeader></PageHeader>}
             footer={
               <Footer

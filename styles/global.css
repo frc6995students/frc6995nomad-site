@@ -69,16 +69,36 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap:5vw;
+}
+
+.footer-left, .footer-right {
+  position:relative;
+  flex-basis: 0;
+  flex-grow: 1;
+  display: flex;
+  gap:3vw;
+}
+.footer-left {
+  justify-content: right;
+}
+.footer-right {
+  justify-content: left;
 }
 
 .copyright {
   font-size: 80%;
   padding: 0.5em;
+  flex-grow: 1;
 }
 
+.settings {
+  flex-grow: 1;
+}
 .settings,
 .social {
   user-select: none;
+  
 }
 
 .settings a,
@@ -190,8 +210,8 @@ body {
   border-radius: 50%;
   border: 2px solid var(--fg-color-6);
   transition: all 300ms ease-out;
-  width: 3.5em;
-  height: 3.5em;
+  width: 2em;
+  height: 2em;
   margin: 0 0 1em;
   display: flex;
   flex-direction: column;
@@ -210,8 +230,8 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  right: -1px;
+  bottom: -1px;
 
   display: flex;
   flex-direction: column;
@@ -237,7 +257,7 @@ body {
 }
 
 .action:hover .actionBgPane {
-  width: 100%;
+  width: 101%;
   height: 100%;
   transition: all 100ms ease-out;
 }
@@ -258,6 +278,19 @@ body {
   border-color: #3b5998;
 }
 
+.instagram .actionBgPane {
+  background: #C13584;
+}
+.instagram:hover {
+  border-color: #C13584;
+}
+
+.thebluealliance .actionBgPane {
+  background: #3b5998;
+}
+.thebluealliance:hover {
+  border-color: #3b5998;
+}
 
 .linkedin .actionBgPane {
   background: #0077b5;
