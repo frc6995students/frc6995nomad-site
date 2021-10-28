@@ -1,15 +1,15 @@
 module.exports = {
   // where it all starts -- the site's root Notion page (required)
-  rootNotionPageId: '5359641e17344c3fb2d57374094896f3',
+  rootNotionPageId: 'bd05296aa98f4244b83084803e29f712',
 
   // if you want to restrict pages to a single notion workspace (optional)
   // (this should be a Notion ID; see the docs for how to extract this)
-  rootNotionSpaceId: '5adb8a9b-7746-40fb-af87-7b848a9573bc',
+  rootNotionSpaceId: '51372708-f6f7-40e1-b43e-24cc8c5563bd',
 
   // basic site info (required)
   name: 'NOMAD 6995',
-  domain: 'nextjs-notion-starter-kit-sepia-eight.vercel.app',
-  author: 'Jeremiah Shue',
+  domain: 'frc6995nomad-site.vercel.app',
+  author: 'NOMAD 6995',
 
   // open graph metadata (optional)
   description: 'A community FIRST Robotics team',
@@ -47,7 +47,7 @@ module.exports = {
   //   '/bar': '0be6efce9daf42688f65c76b89f8eb27'
   // }
   pageUrlOverrides: {
-    '/about': 'b7f41ae066b2497e925db1ba43b926a1',
-    '/blog': '2a989c111df447089cfbccf630f5410a'
+    '/about': 'c2193c3835424502a210fd91966828c1',
+    '/blog': 'e48ebb9a44df4dcd94a62a402dea2b69'
   }
 }
